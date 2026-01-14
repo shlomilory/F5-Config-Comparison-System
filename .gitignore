@@ -1,0 +1,296 @@
+# ============================================================================
+# F5 Configuration Comparison System - .gitignore
+# ============================================================================
+
+# ============================================================================
+# Secrets & Credentials (CRITICAL - NEVER COMMIT!)
+# ============================================================================
+*.pem
+*.key
+*_rsa
+*_rsa.pub
+*.ppk
+*id_rsa*
+*credentials*
+*secrets*
+*secret.json
+*ssh_key*
+*.env
+.env.*
+
+# Terraform sensitive files
+terraform.tfvars
+*.tfvars
+!terraform.tfvars.example
+*.auto.tfvars
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# AWS credentials
+.aws/
+**/aws_credentials
+**/credentials.json
+
+# ============================================================================
+# Terraform
+# ============================================================================
+.terraform/
+.terraform.lock.hcl
+*.tfstate
+*.tfstate.*
+*.tfstate.backup
+crash.log
+crash.*.log
+.terraformrc
+terraform.rc
+
+# ============================================================================
+# Python
+# ============================================================================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+*.manifest
+*.spec
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Virtual environments
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+.venv/
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Unit test / coverage
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*.ipynb
+
+# pyenv
+.python-version
+
+# ============================================================================
+# Lambda Deployment Packages
+# ============================================================================
+lambda-package/
+*.zip
+function.zip
+deployment.zip
+lambda_deployment*.zip
+
+# Lambda dependencies (keep requirements.txt, ignore installed packages)
+lambda/bin/
+lambda/lib/
+lambda/lib64/
+lambda/include/
+lambda/share/
+lambda/*.dist-info/
+lambda/*.egg-info/
+
+# ============================================================================
+# AWS
+# ============================================================================
+response.json
+output.json
+*.log
+
+# ============================================================================
+# IDE & Editors
+# ============================================================================
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+*.sublime-project
+*.sublime-workspace
+.code-workspace
+
+# JetBrains IDEs
+.idea/
+*.iml
+*.ipr
+*.iws
+out/
+
+# Visual Studio Code
+.vscode/
+.history/
+
+# Vim
+[._]*.s[a-v][a-z]
+[._]*.sw[a-p]
+[._]s[a-rt-v][a-z]
+[._]ss[a-gi-z]
+[._]sw[a-p]
+Session.vim
+Sessionx.vim
+
+# ============================================================================
+# Operating Systems
+# ============================================================================
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+*.stackdump
+[Dd]esktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+*.lnk
+
+# Linux
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+
+# ============================================================================
+# Temporary Files
+# ============================================================================
+*.tmp
+*.temp
+*.bak
+*.backup
+*.old
+*.orig
+*~
+.#*
+
+# ============================================================================
+# Logs
+# ============================================================================
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+.pnpm-debug.log*
+
+# ============================================================================
+# Documentation Build Artifacts
+# ============================================================================
+docs/_build/
+docs/.doctrees/
+site/
+
+# ============================================================================
+# Testing
+# ============================================================================
+.pytest_cache/
+.mypy_cache/
+.dmypy.json
+dmypy.json
+.pyre/
+.pytype/
+
+# ============================================================================
+# Node.js (if using any JS tools)
+# ============================================================================
+node_modules/
+npm-debug.log
+yarn-error.log
+package-lock.json
+yarn.lock
+
+# ============================================================================
+# Project Specific
+# ============================================================================
+# Local F5 config files (don't commit real configs!)
+*.conf
+bigip.conf
+/configs/
+
+# Local reports (don't commit actual reports!)
+/reports/*.html
+/reports/*.zip
+
+# Test outputs
+test_output/
+test_results/
+
+# Local development files
+local/
+scratch/
+sandbox/
+
+# Backup files
+backups/
+
+# ============================================================================
+# Keep These Files (Explicit Inclusions)
+# ============================================================================
+# Force include example/template files
+!terraform.tfvars.example
+!.gitignore
+!.github/
+!docs/
+!examples/*.png
+!examples/*.jpg
+!README.md
+!LICENSE

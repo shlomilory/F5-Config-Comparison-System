@@ -1,0 +1,65 @@
+# ============================================================================
+# F5 Configuration Comparison System - Terraform Variables Template
+# ============================================================================
+# Copy this file to terraform.tfvars and fill in your values
+# NEVER commit terraform.tfvars to git!
+# ============================================================================
+
+# ============================================================================
+# AWS Configuration
+# ============================================================================
+aws_region  = "us-east-1"        # AWS region to deploy resources
+aws_profile = "default"          # AWS CLI profile name
+
+# ============================================================================
+# Network Configuration
+# ============================================================================
+vpc_id            = "vpc-xxxxxxxxx"          # Your VPC ID
+subnet_id         = "subnet-xxxxxxxxx"       # Private subnet ID for Lambda
+availability_zone = "us-east-1a"             # Availability zone of the subnet
+
+# ============================================================================
+# F5 Server Configuration
+# ============================================================================
+f5_site1_ip    = "10.100.50.10"              # F5 Site 1 IP address
+f5_site2_ip    = "10.200.50.10"              # F5 Site 2 IP address
+f5_config_path = "/config/bigip.conf"        # Path to F5 configuration file
+
+# ============================================================================
+# Secrets & Notifications
+# ============================================================================
+secret_name       = "f5_comparison_secrets"                    # Secrets Manager secret name
+teams_webhook_url = "https://outlook.office.com/webhook/..."   # Teams webhook URL
+sns_email         = "devops@example.com"                       # Email for SNS alerts
+
+# ============================================================================
+# Lambda Configuration
+# ============================================================================
+lambda_function_name = "f5-config-comparison"
+lambda_memory_size   = 512                   # MB (128-10240)
+lambda_timeout       = 120                   # seconds (max 900)
+
+# ============================================================================
+# Storage Configuration
+# ============================================================================
+s3_bucket_name      = "f5-comparison-reports-yourcompany"      # Must be globally unique
+dynamodb_table_name = "f5-comparison-history"
+
+# ============================================================================
+# Scheduling
+# ============================================================================
+# Biannual: January 1 and July 1 at 11:00 UTC
+schedule_expression = "cron(0 11 1 1,7 ? *)"
+
+# For testing: Every day at 14:00 UTC
+# schedule_expression = "cron(0 14 * * ? *)"
+
+# For testing: Every 6 hours
+# schedule_expression = "rate(6 hours)"
+
+# ============================================================================
+# Tags
+# ============================================================================
+environment = "production"
+project     = "f5-config-comparison"
+owner       = "devops-team"
