@@ -380,9 +380,7 @@ cron(0 11 1 1,7 ? *)
 **IP Normalization:**
 ```python
 def normalize_site_ip(ip_str):
-    # 10.100.50.10:443 → (SITE.50.10:443, 'NJ')
-    # 10.200.50.10:443 → (SITE.50.10:443, 'HRZ')
-    
+
     if matches_pattern("10.100.x.x"):
         return normalize_to_SITE_pattern(), 'SITE1'
     elif matches_pattern("10.200.x.x"):
